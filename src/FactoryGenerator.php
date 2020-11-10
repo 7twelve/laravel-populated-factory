@@ -59,9 +59,9 @@ class FactoryGenerator
 
 use Faker\Generator as Faker;
 
-/** @var $factory \Illuminate\Database\Eloquent\Factory */
+/** @var \Illuminate\Database\Eloquent\Factory \$factory */
 
-$factory->define({$modelClassName}::class, function (Faker $faker) {
+\$factory->define({$modelNamespace}::class, function (Faker \$faker) {
         return [
 {$definition}
         ];
