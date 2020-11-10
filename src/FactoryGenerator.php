@@ -57,33 +57,15 @@ class FactoryGenerator
         return <<<FACTORY
 <?php
 
-namespace Database\Factories;
+use Faker\Generator as Faker;
 
-use {$modelNamespace};
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+/** @var $factory \Illuminate\Database\Eloquent\Factory */
 
-class {$modelClassName}Factory extends Factory
-{
-    /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected \$model = {$modelClassName}::class;
-
-    /**
-     * Define the model's default state.
-     *
-     * @return array
-     */
-    public function definition()
-    {
+$factory->define({$modelClassName}::class, function (Faker $faker) {
         return [
 {$definition}
         ];
-    }
-}
+});
 FACTORY;
     }
 
