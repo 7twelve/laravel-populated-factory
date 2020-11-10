@@ -29,6 +29,8 @@ class FactoryGenerator
 
     public function generate(Model $model): string
     {
+        $this->setConnection($model);
+        
         $table = $this->table($model);
 
         $columns = $this->columns($table);
@@ -108,5 +110,10 @@ FACTORY;
     protected function guessValue(Column $column)
     {
         return $this->guesser->guess($column);
+    }
+    
+    protected function setConnection(Model $model)
+    {
+        $this->connection = $model->getConnection();
     }
 }
